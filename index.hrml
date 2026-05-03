@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geração Sônica - Rádio Retro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000000 0%, #2b1a00 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            background: rgba(20, 20, 20, 0.7);
+            padding: 30px 20px;
+            border-radius: 25px;
+            border: 2px solid #ff8c00;
+            box-shadow: 0 0 40px rgba(255, 140, 0, 0.3);
+        }
+
+        .radio-body {
+            background: linear-gradient(145deg, #3a2400, #1a1a1a);
+            border: 3px solid #ff8c00;
+            border-radius: 20px;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .display {
+            background: #0a0a0a;
+            border: 2px solid #555;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .station-name {
+            font-size: 1.8em;
+            color: #ff8c00;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #ff8c00;
+            margin-bottom: 5px;
+        }
+
+        .now-playing {
+            font-size: 0.9em;
+            color: #ccc;
+            font-style: italic;
+        }
+
+        .knobs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .knob {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #ff8c00, #b35c00);
+            border-radius: 50%;
+            border: 3px solid #111;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff8c00, #ff5e00);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+        }
+
+        .sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,140,0,0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .section-card h3 {
+            color: #ff8c00;
+            margin-bottom: 5px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            background: #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            border: 1px solid #ff8c00;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: #ff8c00;
+            transform: rotate(10deg) scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="radio-body">
+        <div class="display">
+            <div class="station-name">GERAÇÃO SÔNICA</div>
+            <div class="now-playing" id="nowPlaying">🎵 Tocando: Dança dos Condenados</div>
+        </div>
+
+        <div class="knobs">
+            <div class="knob"></div>
+            <div class="knob"></div>
+            <div class="knob"></div>
+        </div>
+
+        <div class="controls">
+            <button class="btn" id="playBtn">▶️ PLAY</button>
+            <button class="btn" id="pauseBtn">⏸️ PAUSE</button>
+        </div>
+
+        <div class="sections">
+            <a href="playlist.html" class="section-card">
+                <h3>📋 PLAYLIST</h3>
+                <p>Escolha a música</p>
+            </a>
+            <a href="videos.html" class="section-card">
+                <h3>🎬 VÍDEOS</h3>
+                <p>Assistir clipes</p>
+            </a>
+        </div>
+
+        <div class="social">
+            <a href="https://www.instagram.com/sigam_compartilhem_e_curtam?igsh=ZnFkcDBheXZqa2hi" class="social-btn" target="_blank">📷</a>
+            <a href="https://www.tiktok.com/@andreluizvansan" class="social-btn" target="_blank">🎵</a>
+            <a href="https://k.kwai.com/u/@andreluizvansa335/eAv4BCAr" class="social-btn" target="_blank">🐲</a>
+            <a href="https://www.youtube.com/@geraçaosonicaoficial" class="social-btn" target="_blank">📺</a>
+        </div>
+    </div>
+</div>
+
+<audio id="audioPlayer" preload="none">
+    <source src="Musica1.mp3" type="audio/mpeg">
+
+
+<script>
+    const audio = document.getElementById('audioPlayer');
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const nowPlaying = document.getElementById('nowPlaying');
+
+    const playlist = [
+        { name: "Dança dos Condenados", file: "Musica1.mp3" },
+        { name: "Salário de Inflação", file: "Musica2.mp3" },
+        { name: "Botão Verde", file: "Musica3.mp3" }
+    ];
+
+    let currentIndex = 0;
+
+    function loadSong(index) {
+        audio.src = playlist[index].file;
+        nowPlaying.innerHTML = `🎵 Tocando: ${playlist[index].name}`;
+    }
+
+    playBtn.addEventListener('click', () => {
+        audio.play();
+    });
+
+    pauseBtn.addEventListener('click', () => {
+        audio.pause();
+    });
+
+    audio.addEventListener('ended', () => {
+        currentIndex = (currentIndex + 1) % playlist.length;
+        loadSong(currentIndex);
+        audio.play();
+    });
+
+    loadSong(currentIndex);
+<script>
+    const audio = document.getElementById('audioPlayer');
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const nowPlaying = document.getElementById('nowPlaying');
+
+  
+    const playlist = [
+        { name: "Dança dos Condenados", file: "musicas/Musica1.mp3" },
+        { name: "Salário de Inflação", file: "musicas/Musica2.mp3" },
+        { name: "Botão Verde", file: "musicas/Musica3.mp3" }
+    ];
+
+    let currentIndex = 0;
+
+    function loadSong(index) {
+        audio.src = playlist[index].file;
+        nowPlaying.innerHTML = `🎵 Tocando: ${playlist[index].name}`;
+    }
+
+    playBtn.addEventListener('click', () => {
+        audio.play();
+    });
+
+    pauseBtn.addEventListener('click', () => {
+        audio.pause();
+    });
+
+    audio.addEventListener('ended', () => {
+        currentIndex = (currentIndex + 1) % playlist.length;
+        loadSong(currentIndex);
+        audio.play();
+    });
+
+    loadSong(currentIndex);
+</script>
+
