@@ -1,0 +1,4 @@
+curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
+     --header "Content-Type: application/json" \
+     --data '{"source_storage_name":"<original_storage_name>","destination_storage_name":"<cluster_storage_name>"}' \
+     "https://gitlab.example.com/api/v4/project_repository_storage_moves"
