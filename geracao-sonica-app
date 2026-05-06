@@ -1,1 +1,49 @@
-Index.html
+Index.html<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Geração Sônica – Rádio Online</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="vintage-radio">
+    <div class="screen-glare"></div>
+    <div class="radio-container">
+      
+      <!-- LOGO COM SEU ARQUIVO ORIGINAL -->
+      <img src="1000006620.png" alt="Geração Sônica" class="logo" id="mainLogo">
+
+      <div class="equalizer" id="equalizer">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      </div>
+
+      <div class="live-badge">🔴 AO VIVO</div>
+      <div class="track-info" id="trackInfo">Geração Sônica – Ao Vivo</div>
+
+      <div class="controls">
+        <button class="ctrl-btn" id="prevBtn" aria-label="Anterior">⏮️</button>
+        <button class="play-pulse" id="playBtn" aria-label="Play/Pause">▶️</button>
+        <button class="ctrl-btn" id="nextBtn" aria-label="Próximo">⏭️</button>
+      </div>
+
+      <div class="volume-control">
+        <span>🔊</span>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.8">
+      </div>
+
+      <div class="social-grid">
+        <a href="https://www.tiktok.com/@geracaosonica" target="_blank" class="social-card tiktok">🎵 TikTok</a>
+        <a href="https://www.instagram.com/sigam_compartilhem_e_curtam" target="_blank" class="social-card insta">📸 Instagram</a>
+        <a href="https://www.youtube.com/@geracaosonica" target="_blank" class="social-card yt">▶️ YouTube</a>
+        <a href="https://www.kwai.com/@geracaosonica" target="_blank" class="social-card kwai">📱 Kwai</a>
+      </div>
+
+      <footer class="footer">© 2026 Geração Sônica – A nova era da música brasileira</footer>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
