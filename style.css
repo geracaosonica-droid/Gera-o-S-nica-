@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  background: radial-gradient(circle at 20% 30%, #0a0a0a, #000000);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
+  padding: 20px;
+}
+
+.vintage-radio {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.screen-glare {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255,140,0,0.08), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 48px;
+}
+
+.radio-container {
+  background: #0c0c0c;
+  border-radius: 48px;
+  padding: 32px 24px 40px;
+  box-shadow: 0 25px 45px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,140,0,0.3);
+  backdrop-filter: blur(2px);
+  transition: all 0.2s;
+}
+
+.logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 0 10px rgba(255,140,0,0.6));
+  animation: softGlow 2s infinite alternate;
+}
+
+@keyframes softGlow {
+  0% { filter: drop-shadow(0 0 5px #FF8C00); opacity: 0.95; }
+  100% { filter: drop-shadow(0 0 18px #FF8C00); opacity: 1; }
+}
+
+.equalizer {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 20px 0 20px;
+  height: 48px;
+  align-items: center;
+}
+
+.bar {
+  width: 6px;
+  height: 18px;
+  background: #FF8C00;
+  border-radius: 3px;
+  transition: height 0.08s linear;
+  box-shadow: 0 0 6px #FF8C00;
+}
+
+.live-badge {
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  background: #111;
+  display: inline-block;
+  width: auto;
+  margin: 0 auto 16px;
+  padding: 5px 16px;
+  border-radius: 40px;
+  color: #FF8C00;
+  font-weight: bold;
+  border: 1px solid #FF8C00;
+  backdrop-filter: blur(4px);
+}
+
+.track-info {
+  text-align: center;
+  color: #ddd;
+  font-weight: 500;
+  margin: 20px 0 16px;
+  font-size: 1rem;
+  background: #111;
+  padding: 10px;
+  border-radius: 60px;
+  border-left: 3px solid #FF8C00;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 16px 0 20px;
+}
+
+.ctrl-btn {
+  background: #1f1f1f;
+  border: none;
+  font-size: 2rem;
+  padding: 12px 18px;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: white;
+  box-shadow: 0 5px 0 #0a0a0a;
+}
+
+.ctrl-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #0a0a0a;
+}
+
+.play-pulse {
+  background: #FF8C00;
+  border: none;
+  font-size: 2.5rem;
+  padding: 12px 28px;
+  border-radius: 60px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #FF8C00;
+  transition: 0.1s linear;
+  color: black;
+  font-weight: bold;
+}
+
+.play-pulse:active {
+  transform: scale(0.97);
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #111;
+  padding: 10px 18px;
+  border-radius: 60px;
+  margin: 12px 0 24px;
+  color: #FFA500;
+}
+
+input[type="range"] {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #333;
+  border-radius: 10px;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #FF8C00;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 6px orange;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.social-card {
+  text-decoration: none;
+  background: #181818;
+  padding: 12px 8px;
+  text-align: center;
+  border-radius: 48px;
+  font-weight: bold;
+  transition: 0.2s;
+  color: white;
+  border: 1px solid #2a2a2a;
+  font-size: 0.9rem;
+}
+
+.social-card.tiktok:hover { background: #000; border-color: #FF0050; color: #FF0050; }
+.social-card.insta:hover { background: #d62976; border-color: white; color: white; }
+.social-card.yt:hover { background: #FF0000; color: white; border-color: white; }
+.social-card.kwai:hover { background: #6a0dad; border-color: #FF8C00; color: white; }
+
+.footer {
+  text-align: center;
+  color: #666;
+  font-size: 0.7rem;
+  margin-top: 32px;
+}
+
+@media (max-width: 480px) {
+  .radio-container { padding: 24px 16px; }
+  .ctrl-btn { font-size: 1.5rem; padding: 8px 14px; }
+  .play-pulse { font-size: 1.8rem; padding: 8px 24px; }
+  .social-card { font-size: 0.75rem; }
+}
